@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ken-pink: #ec4899;
+  --ken-pink-hover: #db2777;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #000000;
+  color: #f5f5f4; /* stone-100 */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.font-serif-elegant {
+  font-family: 'Playfair Display', serif;
+}
+
+.text-ken-pink {
+  color: var(--ken-pink);
+}
+
+.bg-ken-pink {
+  background-color: var(--ken-pink);
+}
+
+.pink-gradient {
+  background: linear-gradient(45deg, #f472b6, #fce7f3, #ec4899, #fce7f3, #f472b6);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shine 5s linear infinite;
+}
+
+@keyframes gradient-shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1c1917; /* stone-900 */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #292524; /* stone-800 */
+}
+
+/* Global Transitions */
+a, button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Mobile tap targets */
+@media (max-width: 640px) {
+  button, a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@keyframes slow-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+.animate-slow-zoom {
+  animation: slow-zoom 25s ease-in-out infinite alternate;
+}
+
+/* Step Transitions */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-step-in {
+  animation: slideInRight 0.4s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+/* Form inputs styling override for consistency */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
